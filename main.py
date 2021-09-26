@@ -11,7 +11,7 @@ def home():
 
 @app.route('/<page>.<ending>')
 @app.route('/<page>')
-def showPage(page, *ending):
+def showPage(page, ending=None):
     try:
         return render_template(f'{page}.html')
     except jinja2.exceptions.TemplateNotFound:
@@ -20,7 +20,7 @@ def showPage(page, *ending):
 
 @app.route('/projects/<project>')
 @app.route('/projects/<project>.<ending>')
-def showProject(project, *ending):
+def showProject(project, ending=None):
     try:
         return render_template(f'projects/{project}.html')
     except jinja2.exceptions.TemplateNotFound:

@@ -17,8 +17,8 @@ function toggleSettings(){
 
 function toggleNerdText(){
     $.cookie('nerdText', nerdText, {expires: new Date(year, 6, 30, 12,
-                59, 0), domain: 'www.brightshard.dev', secure: true})
-    if(nerdText === true){
+                59, 0), domain: '.brightshard.dev', secure: true})
+    if(nerdText){
         $('h1').each(function(){
            $(this).text('# ' + $(this).attr('nerdtext'));
         });
@@ -31,7 +31,7 @@ function toggleNerdText(){
 
 function reloadCSS(colour) {
     $.cookie('colour', colour, {expires: new Date(year, 6, 30, 12,
-                59, 0), domain: 'www.brightshard.dev', secure: true})
+                59, 0), domain: '.brightshard.dev', secure: true})
     $('h1').each(function () {
         $(this).css('color', colour);
     });
@@ -60,16 +60,15 @@ $(document).ready(function() {
         reloadCSS($.cookie('colour'))
     } else {
         $.cookie('colour', '#04AA6D', {expires: new Date(year, 6, 30, 12,
-                59, 0), domain: 'www.brightshard.dev', secure: true});
+                59, 0), domain: '.brightshard.dev', secure: true});
     }
     if($.cookie('nerdText')){
-        nerdText = $.cookie('nerdText');
+        nerdText = ($.cookie('nerdText') === 'true');
     } else {
         nerdText = true;
         $.cookie('nerdText', true, {expires: new Date(year, 6, 30, 12,
-                59, 0), domain: 'www.brightshard.dev', secure: true});
+                59, 0), domain: '.brightshard.dev', secure: true});
     }
-    console.log(nerdText)
     toggleNerdText();
     $('#content').click(function(){
        if(settingsShown){
