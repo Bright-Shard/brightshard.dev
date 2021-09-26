@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block content %}
+<script>
+    document.getElementById('/').id = 'active'
+</script>
+
+<i>Tip: If you want non-techy headers, you can change that in the website settings (the cog at the top-right of this
+    website).</i><br><br>
+<h1 class="code" nerdtext="whoami" normaltext="About Me"># whoami</h1>
+<p>I'm BrightShard, your friendly neighbourhood computer nerd. I'm a teenage developer with lots of experience in
+    Python, CSS, HTML, and Roblox scripting; moderate experience in JavaScript; as well as a bit of experience with C#
+    in Unity and C in Arduino. I'm also an ethical hacker, but I don't have as much experience with hacking as I do
+    programming.</p>
+
+<p class="spacer"></p>
+
+<h1 class="code" nerdtext="ls /home/brightshard/projects" normaltext="My Projects"># ls /home/brightshard/projects</h1>
+<p>I'm currently working on the following open-source projects:</p>
+<ul>
+    <li>C2F: A web-based C2 server for CTFs, that runs for free on <a href="https://repl.it" target="_blank">Replit</a>.
+        (Not finished)</li>
+    <li>Hypertasker: A Python application bringing mail, web, social media, calendaring, news, and more in one place.
+        (Not finished)</li>
+    <li>BrightBot: An open-source <a href="discord.com">Discord</a> bot, written in Python and meant to compete with
+        many paid Discord bots - without any cost. (Finished, but I'll add more features later)</li>
+    <li>Cookie Clicker++: An open-source userscript for hacking Cookie Clicker. (Almost finished)</li>
+    <li>This website: Yeah, this website is also open-source. It's written in Python, and runs for free on
+        <a href="https://repl.it" target="_blank">Replit</a>.</li>
+</ul>
+<p>You can click the links to visit each project, or just visit my projects page to find out more there.</p>
+
+<p class="spacer"></p>
+
+<h1 class="code" nerdtext="cat contribute.md" normaltext="How to Contribute"># cat contribute.md</h1>
+<p>You can contribute to my projects whether you know how to program or not. If you know how to program, all of my apps
+    are open-source on <a href="https://github.com/Bright-Shard" target="_blank">my GitHub page</a>, so you can just add
+    features to the code directly. Otherwise, you can contact me about an issue or feature you want added - either by
+    contacting me personally, or by raising an issue on the GitHub page of the app you want to contribute to.</p>
+{% endblock %}
