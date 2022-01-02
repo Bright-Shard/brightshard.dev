@@ -8,6 +8,7 @@ authors = ["BrightShard <<>>"]
 python = "^3.8"
 Flask = "^2.0.1"
 Jinja2 = "^3.0.1"
+Flask-Cors = "^3.0.10"
 
 [tool.poetry.dev-dependencies]
 

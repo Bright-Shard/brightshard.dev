@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+<script>
+    document.getElementById('/projects').id = 'active'
+</script>
+
+<a href='/projects' class='btn'>< Back to Projects</a>
+<br><br>
+
+<h1 class='code'>What is BrightBot?</h1>
+<p>BrightBot is a Discord bot. You can invite BrightBot to your server <a href='https://discord.com/api/oauth1/authorize?client_id=745433967486042133&permissions=8&scope=bot' target="_blank" rel="noopener noreferrer">here</a>!</p>
+
+<h1 class='code'>What can BrightBot do?</h1>
+<p>BrightBot can do pretty much everything other Discord bots can, but you can find a list <a href='/projects/brightbot-commands.html'>here</a>.
+    
+<h1 class='code'>What makes BrightBot special?</h1>
+<p>There's several things, actually:</p>
+<ul>
+    <li>BrightBot doesn't cost any money. Other bots, like MEE6, can charge almost $90 just for a few features. That's right - NINETY dollars that you won't ever get back. BrightBot, on the other hand, isn't here to scam you.</li>
+    <br>
+    <li>BrightBot is COMPLETELY open-source (Including this website!). That means you can see all of the code, and know for sure that there isn't anything weird going on. There's links for the code under the 'code' dropdown in the top-right of this website.</li>
+    <br>
+    <li>BrightBot is licensed with GPL. That means anyone is free to make changes or make their own versions of BrightBot. Don't worry, though, all changes have to go through me (BrightShard) first, so there won't be malware in it.</li>
+    <br>
+    <li>BrightBot has a TON of features. Unlike other bots that only have a few features, BrightBot is an all-in-one, so you don't have to add millions of bots just to make sure everything goes smoothly.</li>
+</ul>
+
+{% endblock %}

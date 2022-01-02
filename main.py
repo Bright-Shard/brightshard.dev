@@ -1,5 +1,11 @@
-from flask import Flask, render_template
+import flask
+from flask import Flask, send_file
 import jinja2
+
+projects = [{'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': '/static/images/cookie-clicker-icon.png', 'href': '/projects/ccpp'}, {'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': '/static/images/discord.png', 'href': '/projects/brightbot'}]
+
+def render_template(url):
+    return flask.render_template(url, projects=projects)
 
 app = Flask('BrightShard\'s Website')
 
@@ -7,6 +13,12 @@ app = Flask('BrightShard\'s Website')
 @app.route('/')
 def home():
     return render_template('home.html')
+
+
+@app.route('/projects')
+@app.route('/projects.<ending>')
+def listProjects(ending=None):
+    return render_template('projects.html')
 
 
 @app.route('/<page>.<ending>')
@@ -24,6 +36,15 @@ def showProject(project, ending=None):
     try:
         return render_template(f'projects/{project}.html')
     except jinja2.exceptions.TemplateNotFound:
+        return render_template('404.html')
+
+
+@app.route('/downloads/<file>')
+@app.route('/download/<file>')
+def downloadFile(file):
+    try:
+        return send_file(f'files/{file}', as_attachment=True)
+    except FileNotFoundError:
         return render_template('404.html')
 
 

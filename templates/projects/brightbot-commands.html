@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}Commands{% endblock %}
+{% block content %}
+<script>
+    document.getElementById('/projects').id = 'active'
+</script>
+<style>
+    #commands {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    #admin-title {
+        display: inline-block;
+        text-align: center;
+        font-size: 20;
+    }
+    #user-title {
+        display: inline-block;
+        text-align: center;
+        font-size: 20;
+    }
+</style>
+
+<a href='/projects' class='btn'>< Back to Projects</a>
+<br><br>
+
+<div id='commands'>
+    <div>
+        <label id='admin-title'>Features for admins in the server</label>
+        <ul id='admin-commands'>
+            <li>>ban [person]: Ban a member</li>
+            <li>>kick [person]: Kick a member</li>
+            <li>>addRole [person] [role(s)]: Add roles</li>
+            <li>>removeRole [person] [role(s)]: Remove roles</li>
+            <li>>msgRole [emoji] [role] [text(optional)]: Make a reaction role message in the channel the command was run in</li>
+            <li>>embed: Make an embed message</li>
+            <li>>purge: Purge the chat. Of messages.</li>
+            <li>>mute [person]: Gives [person] the Muted role.</li>
+            <li>>unmute [person]: Removes the Muted role from [person]</li>
+        </ul>
+    </div>
+    <div>
+        <label id='user-title'>Features anyone can use in the server</label>
+        <ul id='user-commands'>
+            <li>Get a meme</li>
+            <li>Get one of the latest <a href='https://twitter.com/giantcat9' target="_blank" rel="noopener noreferrer">Giant Military Cats</a> tweets</li>
+            <li>See information on BrightBot</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
