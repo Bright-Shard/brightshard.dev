@@ -1,10 +1,9 @@
-/* Fonts yoinked from Google Fonts, then hosted locally to avoid trackers :) */
 @font-face { /* Comfortaa font, used for body text */
   font-family: 'Comfortaa';
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url('https://www.brightshard.dev/static/fonts/Comfortaa.woff2') format('woff2');
+  src: url(https://www.brightshard.dev/static/fonts/Comfortaa.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face { /* Open Sans font, used for headers and the site title */
@@ -12,7 +11,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('https://www.brightshard.dev/static/fonts/OpenSans.woff2') format('woff2');
+  src: url(https://www.brightshard.dev/static/fonts/OpenSans.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -79,13 +78,13 @@ body { /* Body text style */
 #navbar { /* DIV holding the navigation links */
     display: grid;
     position: relative;
-    grid-template-columns: 1fr 40px;
+    grid-template-columns: 1fr 10px 80px;
     grid-template-rows: 1fr;
     right: 0px;
     width: 100%;
 }
 #navbar-icons { /* List holding settings & hamburger button */
-    grid-column: 2;
+    grid-column: 3;
     list-style-type: none;
     overflow: hidden;
     padding: 0;

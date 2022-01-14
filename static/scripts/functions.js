@@ -1,5 +1,6 @@
 let openMenu = 'None';
-var year = 2022;
+let date = new Date
+let expireDate = new Date(date.getFullYear() + 1, 12, 31, 12, 59, 0)
 let resizeTimer;
 let projectsListOpen = false;
 
@@ -15,20 +16,18 @@ function navBarCSS(){
         $('#navbar-pages').slideDown(1)
         $('#hamburger').hide();
         $("#navbar-pages").detach().appendTo("#navbar");
-        $('#navbar').css('grid-template-columns', '1fr 40px');
+        $('#navbar').css('grid-template-columns', '1fr 10px 80px');
     }
 }
 
 function reloadCSS(colour) {
-    $.cookie('colour', colour, {expires: new Date(year, 6, 30, 12,
-                59, 0), domain: '.brightshard.dev', secure: true})
-    $('.code, a, .gallery-item, .updateColour, .icon').css('color', colour)
-    $('.btn').css({'color': '#262626', 'border-color': colour, 'background-color': colour});
-    $('.tab-text:not(#active)').css({'color': '#151515', 'border-color': colour, 'background-color': colour})
-    $('.outline').css('border-color', colour);
-    $('#active').css({'color': colour, 'border-color': colour, 'background-color': '#151515'})
-    $('#navbar-pages').css({'color': colour, 'border-color': colour})
-    $('.gallery-text').css({'background-color': colour});
+    $.cookie('colour', colour, {expires: expireDate, domain: '.brightshard.dev', secure: true});
+    $('.btn, .tab-text:not(#active), .gallery-text').css('background-color', colour);
+    $('#active').css('background-color', '#151515');
+    $('.code, a, .gallery-item, .updateColour, .icon, #active, #navbar-pages').css('color', colour);
+    $('.btn').css('color', '#262626');
+    $('.tab-text:not(#active)').css('color', '#151515');
+    $('.btn, .tab-text, .outline, #navbar-pages').css('border-color', colour);
 }
 
 function toggleMenus() {
@@ -59,8 +58,7 @@ $(document).ready(function() {
     if($.cookie('colour')){
         reloadCSS($.cookie('colour'))
     } else {
-        $.cookie('colour', '#04AA6D', {expires: new Date(year, 6, 30, 12,
-                59, 0), domain: '.brightshard.dev', secure: true});
+        $.cookie('colour', '#04AA6D', {expires: expireDate, domain: '.brightshard.dev', secure: true});
     }
     $('img').click(function() {
         if($(this).attr('nozoom') != 'true'){
