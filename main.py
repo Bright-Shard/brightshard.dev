@@ -1,13 +1,29 @@
 import flask
 from flask import Flask, send_file
+from flask_cors import CORS
 import jinja2
 
-projects = [{'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': '/static/images/cookie-clicker-icon.png', 'href': '/projects/ccpp'}, {'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': '/static/images/discord.png', 'href': '/projects/brightbot'}]
+projects = [
+	{'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': '/static/images/icons/cookie-clicker-icon.png', 'href': '/projects/ccpp'}, 
+	{'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': '/static/images/icons/discord.png', 'href': '/projects/brightbot'},
+	{'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': '/static/images/icons/rickroll.jpg', 'href': 'https://redirect.brightshard.dev'
+	}]
 
 def render_template(url):
     return flask.render_template(url, projects=projects)
 
 app = Flask('BrightShard\'s Website')
+cors = CORS(app, resource={
+	r'/static/style.css': {
+		'origins': '*'
+	},
+	r'/static/fonts/*': {
+		'origins': '*'
+	},
+	r'/static/scripts/*': {
+		'origins': '*'
+	}
+})
 
 
 @app.route('/')
@@ -49,4 +65,4 @@ def downloadFile(file):
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0',80)
+    app.run('0.0.0.0', 80)

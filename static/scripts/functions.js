@@ -2,7 +2,7 @@ let openMenu = 'None';
 let date = new Date
 let expireDate = new Date(date.getFullYear() + 1, 12, 31, 12, 59, 0)
 let resizeTimer;
-let projectsListOpen = false;
+let projectsListHover = false;
 
 function navBarCSS(){
     if ($(window).width() <= 800) { // Show the hamburger menu on small screens
@@ -21,44 +21,45 @@ function navBarCSS(){
 }
 
 function reloadCSS(colour) {
-    $.cookie('colour', colour, {expires: expireDate, domain: '.brightshard.dev', secure: true});
+    $.cookie('colour', colour, {expires: expireDate, domain: '.brightshard.dev', secure: true, path: '/'});
     $('.btn, .tab-text:not(#active), .gallery-text').css('background-color', colour);
     $('#active').css('background-color', '#151515');
     $('.code, a, .gallery-item, .updateColour, .icon, #active, #navbar-pages').css('color', colour);
     $('.btn').css('color', '#262626');
     $('.tab-text:not(#active)').css('color', '#151515');
-    $('.btn, .tab-text, .outline, #navbar-pages').css('border-color', colour);
+    $('.btn, .tab-text, .outline, #navbar-pages, input').css('border-color', colour);
 }
 
 function toggleMenus() {
     if(openMenu != 'None') {
         $('#content').animate({opacity: '1'}, 500);
         $('#footer').animate({opacity: '1'}, 500);
-        $('#titlebar').animate({opacity: '1'});
+        $('#titlebar').animate({opacity: '1'}, 500);
         $('#clickdetection').hide();
         if(openMenu === '#bigimg') {
             $('#bigimg').fadeToggle(500);
         } else if(openMenu === '#settings') {
             $('#cog').attr('class', 'fas fa-cog icon');
             $('#settings').slideToggle(500);
-        } else {
+        } else if(openMenu == '#navbar-pages') {
             $('#hamburger').attr('class', 'fas fa-bars icon');
             $('#navbar-pages').slideToggle(500);
-        }
+        } else if(openMenu == '#projects-dropdown') {
+        	$('#projects-dropdown').slideUp(500);
+		}
         openMenu = 'None';
     }
 }
 
 $(document).ready(function() {
     $('#settings').slideUp(1);
-    $('#projects-dropdown').slideUp(1);
     $('#bigimg').fadeToggle(1);
     $('#clickdetection').hide();
     navBarCSS()
     if($.cookie('colour')){
         reloadCSS($.cookie('colour'))
     } else {
-        $.cookie('colour', '#04AA6D', {expires: expireDate, domain: '.brightshard.dev', secure: true});
+        $.cookie('colour', '#04AA6D', {expires: expireDate, domain: '.brightshard.dev', secure: true, path: '/'});
     }
     $('img').click(function() {
         if($(this).attr('nozoom') != 'true'){
@@ -101,21 +102,34 @@ $(document).ready(function() {
             openMenu = '#navbar-pages';
         }
     });
-    $('#projects-dropdown').parent().hover(function() {
-        if (!projectsListOpen) {
-            $('#projects-dropdown').slideDown(500);
-            $('#clickdetection').show()
-            projectsListOpen = true;
-        }
+    $('#projects-dropdown').parent().on('mouseenter', function() {
+        $('#projects-dropdown').slideDown(500);
+        $('#content').animate({opacity: '.5'}, 500);
+        $('#footer').animate({opacity: '.5'}, 500);
+		setTimeout(function() {
+			openMenu = '#projects-dropdown';
+		}, 200);
+		setTimeout(function() {
+			if(projectsListHover == false) {
+        		toggleMenus()
+			}
+			projectsListHover = false;
+		}, 1500);
     });
-    $('#clickdetection').hover(function() {
-        if (projectsListOpen) {
-            $('#projects-dropdown').slideUp(500);
-            $('#clickdetection').hide()
-            projectsListOpen = false;
-        }
-    })
-    $('#veil').hide(); // The veil covers the whole website until loading is finished to hide stuff glitching in/out of view, this makes it vanish once everything's loaded
+	$('#projects-dropdown').on('mouseenter', function() {
+		if(openMenu == '#projects-dropdown') {
+			projectsListHover = true;
+		}
+	});
+    $('#projects-dropdown').on('mouseleave', function() {
+		if(openMenu == '#projects-dropdown') {
+	        toggleMenus()
+		}
+    });
+	setTimeout(function() {
+    	$('#projects-dropdown').slideUp(1);
+   		$('#veil').hide(100);
+	}, 300) // The veil covers the whole website until loading is finished to hide stuff glitching in/out of view, this makes it vanish once everything's loaded
 });
 
 $(window).resize(function() {

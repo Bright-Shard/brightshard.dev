@@ -107,6 +107,20 @@ body { /* Body text style */
     border-radius: 5px;
     background-color: #151515;
     padding: 6px 12px;
+    box-shadow: -7px 7px 3px black;
+}
+#settings {
+    display: block;
+    margin-top: 80px;
+    position: fixed;
+    right: 0;
+    z-index: 2;
+    background-color: #151515;
+    box-shadow: -10px 10px 3px black;
+}
+#projects-dropdown {
+	background-color: #151515;
+    box-shadow: -10px 10px 3px black;
 }
 .tab-list-item { /* Each list item */
     float: right;
@@ -124,32 +138,22 @@ body { /* Body text style */
     transition-duration: 0.3s;
 }
 .tab-text:hover {
-    box-shadow: 5px 5px 3px black;
+    box-shadow: -3px 3px 3px black;
     scale: 1.05;
 }
 #active { /* Change colour of current tab */
     background-color: #151515;
     color: #04AA6D;
 }
-
-/* Settings menu styles */
-#settings {
-    display: block;
-    margin-top: 80px;
-    position: fixed;
-    right: 0;
-    z-index: 2;
-    background-color: #151515;
-}
 .icon { /* Style for the settings cog & hamburger menu icons */
-    background-color: #151515;
+    background: rgba(0, 0, 0, 0);
     color: #04AA6D;
     font-size: 30px;
     text-align: center;
     text-decoration: none;
     transition-duration: 0.3s;
-    padding: 6px;
-    margin-top: 2px;
+    padding: 3px;
+    margin-top: 4px;
 }
 .icon:hover { /* Enlarge icons on hover */
     scale: 1.1;
@@ -191,16 +195,21 @@ h1 { /* Set titles apart with font, spacing, and text size */
     line-height: 1.2;
     margin: 2px;
 }
-.input { /* Normal text input styling is a dumpster fire, let's fix that */
+input { /* Normal text input styling is a dumpster fire, let's fix that */
     background-color: #151515;
-    color: #04AA6D;
     border-radius: 5px;
     border: 2px solid #04AA6D;
+	color: white;
 }
 .spacer { /* Just a workaround for spacing elements cuz css boxes are complicated */
     font-size: 0;
     color: #262626;
     padding: 25px;
+}
+.minispacer {
+	font-size: 0;
+	color: #262626;
+	padding: 5px;
 }
 
 /* Button styles */
@@ -217,7 +226,7 @@ h1 { /* Set titles apart with font, spacing, and text size */
     transition-duration: 0.3s;
 }
 .btn:hover {
-    box-shadow: 5px 5px 3px black;
+    box-shadow: -5px 5px 3px black;
     scale: 1.05;
 }
 .circleBtn {
@@ -255,6 +264,7 @@ h1 { /* Set titles apart with font, spacing, and text size */
 }
 .gallery-item:hover {
     transform: scale(1.05, 1.05);
+    box-shadow: -10px 10px 3px black;
 }
 .gallery-picture {
     margin: auto auto;

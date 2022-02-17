@@ -1,10 +1,12 @@
 {% macro navPages() %}
 <li class='tab-list-item'><a href='/contact' id='/contact' class='tab-text'>Contact Me</a></li>
-<li class='tab-list-item'><a href='/projects' id='/projects' class='tab-text'>My Projects</a><div class='outline' id='projects-dropdown' style='position: absolute; margin-top: 5px;'>
-    {% for project in projects %}
-        <a href={{ project.href }} class='btn' style='margin-bottom: 5px; margin-top: 5px'>{{ project.title }}</a>
-        <br>
-    {% endfor %}
-</div></li>
+<li class='tab-list-item'><a href='/projects' id='/projects' class='tab-text'>My Projects</a>
+	<div class='outline' id='projects-dropdown' style='position: absolute; margin-top: 5px;'>
+	    {% for project in projects %}
+	        <a href={{ project.href }} class='btn' style='margin-bottom: 5px; margin-top: 5px'>{{ project.title }}</a>
+	        <br>
+	    {% endfor %}
+	</div>
+</li>
 <li class='tab-list-item'><a href='/' id='/' class='tab-text'>Home</a></li>
 {% endmacro %}
