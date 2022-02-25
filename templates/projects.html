@@ -6,12 +6,12 @@
     document.getElementById('/projects').id = 'active'
 </script>
 
-<h1 class="code">My Projects</h1>
+<h1 class='code center'>My Projects</h1>
 <br><br>
-<div class='gallery'>
+<div class='gallery center'>
     {% for project in projects %}
-        <a class='gallery-item' href={{ project.href }}>
-            <img class='gallery-picture' nozoom='true' src={{ project.imgsrc }}>
+        <a class='gallery-item' href='{{ project.href }}'>
+            <img class='gallery-picture' nozoom='true' src='/static/images/icons/{{ project.imgsrc }}'>
             <div class='gallery-text'>
                 <h2 class='gallery-title'>{{ project.title }}</h2>
                 <p class='gallery-desc'>{{ project.desc }}</p>

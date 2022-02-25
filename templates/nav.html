@@ -3,7 +3,7 @@
 <li class='tab-list-item'><a href='/projects' id='/projects' class='tab-text'>My Projects</a>
 	<div class='outline' id='projects-dropdown' style='position: absolute; margin-top: 5px;'>
 	    {% for project in projects %}
-	        <a href={{ project.href }} class='btn' style='margin-bottom: 5px; margin-top: 5px'>{{ project.title }}</a>
+	        <a href='{{ project.href }}' class='btn' style='margin-bottom: 5px; margin-top: 5px'>{{ project.title }}</a>
 	        <br>
 	    {% endfor %}
 	</div>

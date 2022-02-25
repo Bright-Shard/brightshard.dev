@@ -126,6 +126,7 @@ $(document).ready(function() {
 	        toggleMenus()
 		}
     });
+	$('a').prop('rel', 'noopener noreferrer')
 	setTimeout(function() {
     	$('#projects-dropdown').slideUp(1);
    		$('#veil').hide(100);

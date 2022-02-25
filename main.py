@@ -4,17 +4,18 @@ from flask_cors import CORS
 import jinja2
 
 projects = [
-	{'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': '/static/images/icons/cookie-clicker-icon.png', 'href': '/projects/ccpp'}, 
-	{'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': '/static/images/icons/discord.png', 'href': '/projects/brightbot'},
-	{'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': '/static/images/icons/rickroll.jpg', 'href': 'https://redirect.brightshard.dev'
-	}]
+	{'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': 'cookie-clicker-icon.png', 'href': '/projects/ccpp'}, 
+	{'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': 'discord.png', 'href': '/projects/brightbot'},
+	{'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': 'rickroll.jpg', 'href': 'https://redirect.brightshard.dev'
+	},
+	{'title': 'DigiSpark HID', 'desc': 'DigiSpark HID attacks', 'imgsrc': 'digispark.png', 'href': '/projects/digispark'}]
 
 def render_template(url):
     return flask.render_template(url, projects=projects)
 
 app = Flask('BrightShard\'s Website')
 cors = CORS(app, resource={
-	r'/static/style.css': {
+	r'/static/*': {
 		'origins': '*'
 	},
 	r'/static/fonts/*': {

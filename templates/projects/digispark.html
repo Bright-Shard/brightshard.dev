@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}CCPP{% endblock %}
+{% block content %}
+
+<script>
+    document.getElementById('/projects').id = 'active'
+</script>
+
+<a href='/projects' class='btn'>< Back to Projects</a>
+<br><br>
+<h1 class='code'>My DigiSpark Scripts</h1><br>
+<a href='https://github.com/Bright-Shard/Digispark' target='_blank' class='btn'>See my GitHub repo</a><br><br>
+
+<h1 class='code'>Explanation</h1><br>
+<h2 class='code'>What's a DigiSpark?</h2>
+<p>DigiSparks are little microcontrollers - basically, tiny boards you can connect lights and buttons to, and then program them to do cool things with those lights and buttons.
+<br>
+The DigiSpark, however, also has USB access. Each board is extremely cheap (Sometimes just $1 each!), and can tell the computer it's connected to that it's a keyboard, not a DigiSpark. Using this, DigiSparks can be used to perform HID attacks.
+</p>
+
+<h2 class='code'>HID Attacks</h2>
+<p>HID (Human Interface Device) attacks exploit USB ports to hack computers. Usually, this means telling the computer that whatever device you're plugging in is a keyboard, and then sending keystrokes to open a terminal and pull some funny pranks. The DigiSpark is extremely small and can perform HID attacks, making it a lot of fun to program!</p>
+
+{% endblock %}
