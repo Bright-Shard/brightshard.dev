@@ -6,9 +6,12 @@ import jinja2
 projects = [
 	{'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': 'cookie-clicker-icon.png', 'href': '/projects/ccpp'}, 
 	{'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': 'discord.png', 'href': '/projects/brightbot'},
-	{'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': 'rickroll.jpg', 'href': 'https://redirect.brightshard.dev'
-	},
+	{'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': 'rickroll.jpg', 'href': 'https://redirect.brightshard.dev'},
 	{'title': 'DigiSpark HID', 'desc': 'DigiSpark HID attacks', 'imgsrc': 'digispark.png', 'href': '/projects/digispark'}]
+
+posts = [
+	{'title': 'Hello, world!', 'desc': 'print("Hello, world!")', 'href': 'hello-world', 'img': 'helloworld.jpg'}
+]
 
 def render_template(url):
     return flask.render_template(url, projects=projects)
@@ -32,10 +35,10 @@ def home():
     return render_template('home.html')
 
 
-@app.route('/projects')
-@app.route('/projects.<ending>')
-def listProjects(ending=None):
-    return render_template('projects.html')
+@app.route('/blog')
+@app.route('/blog.<ending>')
+def showBlog(ending=None):
+	return flask.render_template('blog.html', projects=projects, posts=posts)
 
 
 @app.route('/<page>.<ending>')
@@ -54,6 +57,15 @@ def showProject(project, ending=None):
         return render_template(f'projects/{project}.html')
     except jinja2.exceptions.TemplateNotFound:
         return render_template('404.html')
+
+
+@app.route('/blog/<post>')
+@app.route('/blog/<post>.<ending>')
+def showBlogPost(post, ending=None):
+	try:
+		return render_template(f'blog/{post}.html')
+	except jinja2.exceptions.TemplateNotFound:
+		return render_template('404.html')
 
 
 @app.route('/downloads/<file>')

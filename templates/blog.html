@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+
+<script>
+    document.getElementById('/blog').id = 'active'
+</script>
+
+<h1 class='code center'>Blog</h1>
+<br><br>
+<div class='blog center'>
+    {% for post in posts %}
+        <a class='blog-item' href='/blog/{{ post.href }}'>
+			<div class='blog-text'>
+				<h2 class='blog-title'>{{ post.title }}</h2>
+				<p class='blog-desc'>{{ post.desc }}</p>
+			</div>
+			<div id='divider'></div>
+			<img class='blog-picture' nozoom='true' src='/static/images/blog/{{ post.img }}'>
+        </a>
+    {% endfor %}
+</div>
+
+{% endblock %}
