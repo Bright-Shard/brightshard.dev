@@ -1,10 +1,13 @@
-{% extends 'base.html' %}
+{% extends 'templates/base.html' %}
 {% block title %}My Projects{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="/static/styles/gallery.css">
+
+{% endblock head %}
 {% block content %}
 
-<script>
-    document.getElementById('/projects').id = 'active'
-</script>
+<script>document.getElementById('/projects').id = 'active'</script>
 
 <h1 class='code center'>My Projects</h1>
 <br><br>

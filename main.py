@@ -16,7 +16,7 @@ posts = [
 def render_template(url):
     return flask.render_template(url, projects=projects)
 
-app = Flask('BrightShard\'s Website')
+app = Flask('brightsharddev', template_folder='pages')
 cors = CORS(app, resource={
 	r'/static/*': {
 		'origins': '*'

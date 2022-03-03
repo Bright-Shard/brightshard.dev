@@ -1,0 +1,48 @@
+/* Styles for the blog page */
+.blog {
+    max-width: 1200px;
+	justify-items: center;
+	align-items: center;
+}
+.blog-item {
+    color: #04AA6D;
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: #262626;
+    margin: 10px;
+    padding: 6px 12px;
+    display: grid;
+    position: static;
+    grid-template-columns: 1fr 25px 200px;
+    transition-duration: .4s;
+	text-decoration: none;
+}
+.blog-item:hover {
+    transform: scale(1.05, 1.05);
+    box-shadow: -10px 10px 3px black;
+}
+.blog-picture {
+	max-width: 200px;
+	max-height: 200px;
+	grid-column: 3;
+}
+.blog-text {
+	display: grid;
+	position: static;
+	grid-template-rows: 1fr 1fr;
+	grid-column: 1;
+}
+.blog-title {
+    font-size: 25px;
+    padding: 5px;
+    margin: 0px;
+	font-family: OpenSans, sans-serif;
+	grid-row: 1;
+}
+.blog-desc {
+    font-size: 14px;
+    padding: 5px;
+    margin: 0px;
+	color: white;
+	grid-row: 2;
+}

@@ -1,0 +1,27 @@
+<div id='titlebar'>
+    <div id='title'>
+        <a href='/' id='title-text'>BrightShard</a>
+    </div>
+    <div id='navbar'>
+        <ul id='navbar-pages'>
+            <li class='tab-list-item'><a href='/contact' id='/contact' class='tab-text'>Contact Me</a></li>
+            <li class='tab-list-item'><a href='/blog' id='/blog' class='tab-text'>Blog</a></li>
+            <li class='tab-list-item'><a href='/projects' id='/projects' class='tab-text'>My Projects</a>
+                <div class='outline' id='projects-dropdown' style='position: absolute; margin-top: 5px;'>
+                    {% for project in projects %}
+                        <a href='{{ project.href }}' class='btn' style='margin-bottom: 5px; margin-top: 5px'>{{ project.title }}</a>
+                        <br>
+                    {% endfor %}
+                </div>
+            </li>
+            <li class='tab-list-item'><a href='/' id='/' class='tab-text'>Home</a></li>
+        </ul>
+        <div id='spacer' style='grid-column: 2'></div>
+        <ul id='navbar-icons'>
+            <a href='https://github.com/Bright-Shard' target='_blank'><i class="fa fa-2x fa-github icon" aria-hidden="true"></i></a>
+            <a href='javascript:void(0)'><i class='fas fa-cog icon' href='javascript:void(0)' id="cog"></i></a>
+            <a href='javascript:void(0)'><i class='fas fa-bars icon' href='javascript:void(0)' id='hamburger'></i></a>
+        </ul>
+    </div>
+    <div id='spacing-right'></div>
+</div>

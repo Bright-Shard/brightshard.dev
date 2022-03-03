@@ -1,11 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'templates/base.html' %}
 {% block title %}Blog{% endblock %}
+{% block head %}
+
+<link rel="stylesheet" type="text/css" href="/static/styles/blog.css">
+
+{% endblock %}
 {% block content %}
 
-<script>
-    document.getElementById('/blog').id = 'active'
-</script>
 
+<script>document.getElementById('/blog')</script>
 <h1 class='code center'>Blog</h1>
 <br><br>
 <div class='blog center'>

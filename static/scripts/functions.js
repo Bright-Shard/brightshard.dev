@@ -127,10 +127,8 @@ $(document).ready(function() {
 		}
     });
 	$('a').prop('rel', 'noopener noreferrer')
-	setTimeout(function() {
-    	$('#projects-dropdown').slideUp(1);
-   		$('#veil').hide(100);
-	}, 300) // The veil covers the whole website until loading is finished to hide stuff glitching in/out of view, this makes it vanish once everything's loaded
+    $('#projects-dropdown').slideUp(1);
+    $('#veil').hide(100);
 });
 
 $(window).resize(function() {
