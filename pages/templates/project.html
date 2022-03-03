@@ -5,7 +5,6 @@
 
 </head>
 <body>
-    <script>document.getElementById('/projects')</script>
     <!-- Titlebar (Title, nav. bar, GitHub button, settings button) !-->
     {% include 'shards/titlebar.html' %}
     <!-- Hides page content until the page has loaded !-->
@@ -19,6 +18,7 @@
 
     <!-- Page content !-->
     <div id='content'>
+        <script>document.getElementById('/projects').id = 'active'</script>
         <a href='/projects' class='btn'>< Back to Projects</a>
         <br><br>
         {% block content %}{% endblock content %}

@@ -4,7 +4,6 @@
     {% include 'shards/head.html' %}
 </head>
 <body>
-    <script>document.getElementById('/blog')</script>
     <!-- Titlebar (Title, nav. bar, GitHub button, settings button) !-->
     {% include 'shards/titlebar.html' %}
     <!-- Hides page content until the page has loaded !-->
@@ -18,6 +17,7 @@
 
     <!-- Page content !-->
     <div id='content'>
+        <script>document.getElementById('/blog').id = 'active'</script>
         <a href='/blog' class='btn'>< All Posts</a>
         <br><br>
         {% block content %}{% endblock content %}
