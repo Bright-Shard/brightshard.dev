@@ -12,8 +12,8 @@
 <h1 class='code center'>My Projects</h1>
 <br><br>
 <div class='gallery center'>
-    {% for project in projects %}
-        <a class='gallery-item' href='{{ project.href }}'>
+    {% for name, project in projects.items() %}
+        <a class='gallery-item' href='/projects/{{ project.href }}'>
             <img class='gallery-picture' nozoom='true' src='/static/images/icons/{{ project.imgsrc }}'>
             <div class='gallery-text'>
                 <h2 class='gallery-title'>{{ project.title }}</h2>

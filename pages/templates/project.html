@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
-    <title>BrightShard's Projects - {% block title %}{% endblock title %}</title>
-    {% include 'shards/head.html' %}
+    <title>BrightShard's Projects - {{ project.title }}</title>
+    {% include 'shards/project-head.html' with context %}
 
 </head>
 <body>

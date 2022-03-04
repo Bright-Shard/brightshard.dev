@@ -1,18 +1,20 @@
 import flask
-from flask import Flask, send_file, render_template
+from flask import Flask, send_file
 from flask_cors import CORS
 import jinja2
 
-projects = {
-	'ccpp': {'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': 'cookie-clicker-icon.png', 'href': 'ccpp'}, 
-	'brightbot': {'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': 'discord.png', 'href': 'brightbot'},
-	'tricktroll': {'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': 'rickroll.jpg', 'href': 'tricktroll'},
-	'digispark': {'title': 'DigiSpark HID', 'desc': 'DigiSpark HID attacks', 'imgsrc': 'digispark.png', 'href': 'digispark'}
-}
+projects = [
+	{'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': 'cookie-clicker-icon.png', 'href': '/projects/ccpp'}, 
+	{'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': 'discord.png', 'href': '/projects/brightbot'},
+	{'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': 'rickroll.jpg', 'href': 'https://redirect.brightshard.dev'},
+	{'title': 'DigiSpark HID', 'desc': 'DigiSpark HID attacks', 'imgsrc': 'digispark.png', 'href': '/projects/digispark'}]
 
-posts = {
-	'hello-world': {'title': 'Hello, world!', 'desc': 'print("Hello, world!")', 'href': 'hello-world', 'img': 'helloworld.jpg'}
-}
+posts = [
+	{'title': 'Hello, world!', 'desc': 'print("Hello, world!")', 'href': 'hello-world', 'img': 'helloworld.jpg'}
+]
+
+def render_template(url):
+    return flask.render_template(url, projects=projects)
 
 app = Flask('brightsharddev', template_folder='pages')
 cors = CORS(app, resource={
@@ -30,20 +32,20 @@ cors = CORS(app, resource={
 
 @app.route('/')
 def home():
-    return render_template('home.html', projects=projects)
+    return render_template('home.html')
 
 
 @app.route('/blog')
 @app.route('/blog.<ending>')
 def showBlog(ending=None):
-	return render_template('blog.html', projects=projects, posts=posts)
+	return flask.render_template('blog.html', projects=projects, posts=posts)
 
 
 @app.route('/<page>.<ending>')
 @app.route('/<page>')
 def showPage(page, ending=None):
     try:
-        return render_template(f'{page}.html', projects=projects)
+        return render_template(f'{page}.html')
     except jinja2.exceptions.TemplateNotFound:
         return render_template('404.html')
 
@@ -52,7 +54,7 @@ def showPage(page, ending=None):
 @app.route('/projects/<project>.<ending>')
 def showProject(project, ending=None):
     try:
-        return render_template(f'projects/{project}.html', projects=projects, project=projects[project])
+        return render_template(f'projects/{project}.html')
     except jinja2.exceptions.TemplateNotFound:
         return render_template('404.html')
 
@@ -61,7 +63,7 @@ def showProject(project, ending=None):
 @app.route('/blog/<post>.<ending>')
 def showBlogPost(post, ending=None):
 	try:
-		return render_template(f'blog/{post}.html', projects=projects, post=posts[post])
+		return render_template(f'blog/{post}.html')
 	except jinja2.exceptions.TemplateNotFound:
 		return render_template('404.html')
 

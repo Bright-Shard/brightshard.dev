@@ -1,0 +1,19 @@
+{% extends 'templates/project.html' %}
+{% block content %}
+
+<h1 class='code'>What is this?</h1>
+<p>A handy website for rick rolling people. Video players don't appear in Discord/other websites, so links are undetectable. If this website gets blacklisted, just host your own on a different domain :)</p>
+<br>
+<a class='btn' id='rickroll'>Copy Rick Roll URL</a>
+<br>
+<a class='btn' id='babel'>Copy Library of Babel Rick Roll URL</a>
+<script>
+    $('#rickroll').click(function() {
+        document.log('e')
+    });
+    $('#babel').click(function() {
+        document.log('a')
+    });
+</script>
+
+{% endblock %}
