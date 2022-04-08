@@ -5,10 +5,10 @@
 	align-items: center;
 }
 .blog-item {
-    color: #04AA6D;
+    color: var(--alt);
     border: 2px solid;
     border-radius: 5px;
-    background-color: #262626;
+    background-color: var(--bg);
     margin: 10px;
     padding: 6px 12px;
     display: grid;
@@ -19,7 +19,7 @@
 }
 .blog-item:hover {
     transform: scale(1.05, 1.05);
-    box-shadow: -10px 10px 3px black;
+    box-shadow: -10px 10px 3px var(--shadow);
 }
 .blog-picture {
 	max-width: 200px;
@@ -43,6 +43,6 @@
     font-size: 14px;
     padding: 5px;
     margin: 0px;
-	color: white;
+	color: var(--text);
 	grid-row: 2;
 }

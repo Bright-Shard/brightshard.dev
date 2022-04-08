@@ -2,17 +2,17 @@
 {% block content %}
 
 <h1 class='code'>What is this?</h1>
-<p>A handy website for rick rolling people. Video players don't appear in Discord/other websites, so links are undetectable. If this website gets blacklisted, just host your own on a different domain :)</p>
+<p>A handy website for rick rolling people. I have links to rick roll people (see below), but social media doesn't show the YouTube miniplayer, so you can rickroll them much easier :).</p>
 <br>
-<a class='btn' id='rickroll'>Copy Rick Roll URL</a>
-<br>
-<a class='btn' id='babel'>Copy Library of Babel Rick Roll URL</a>
+<a class='btn' id='rickroll' href='javascript:void(0)'>Copy Rick Roll URL</a>
+<br><br>
+<a class='btn' id='babel' href='javascript:void(0)'>Copy Library of Babel Rick Roll URL</a>
 <script>
     $('#rickroll').click(function() {
-        document.log('e')
+        navigator.clipboard.writeText('https://www.brightshard.dev/redirect/youtube')
     });
     $('#babel').click(function() {
-        document.log('a')
+        navigator.clipboard.writeText('https://www.brightshard.dev/redirect/babel')
     });
 </script>
 

@@ -15,11 +15,21 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* Global settings */
+:root {
+	--bg: #262626;
+	--bg-alt: #151515;
+	--text: white;
+	--alt: #04aa6d;
+	--error:  #c32e19;
+	--shadow: black;
+}
+
 /* General body styles */
 body { /* Body text style */
     margin: 0;
-    background-color: #262626;
-    color: white;
+    background-color: var(--bg);
+    color: var(--text);
     font-family: Comfortaa, verdana, sans-serif;
     line-height: 1.4;
     display: flex;
@@ -32,17 +42,18 @@ body { /* Body text style */
     overflow-y: auto;
     float: top;
     top: 0;
+	margin-bottom: 25px;
 }
 
 /* Footer styles */
 #footer { /* DIV holding the footer of the website */
-    color: #04AA6D;
-    float: bottom;
+    color: var(--alt);
+	position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     padding: 7px 0;
-    background-color: #151515;
+    background-color: var(--bg-alt);
     z-index: 1;
 }
 #footer-content { /* DIV holding the actual content, this prevents the footer background from expanding horizontally from padding */
@@ -57,23 +68,29 @@ body { /* Body text style */
     display: grid;
     grid-template-columns: 1fr 1fr 15px;
     width: 100%;
-    background-color: #151515;
+    background-color: var(--bg-alt);
     z-index: 3;
     height: 80px;
 }
 .clearfix { /* This is just to fix visual errors in the title bar */
     clear: both;
 }
-#title { /* DIV holding title, used to position title */
+#branding { /* Title & Logo */
     float: left;
-    padding-top: 10px;
-}
-#title-text { /* Style the title text */
     text-decoration: none;
-    color: #04AA6D;
-    padding-left: 15px;
-    font-size: 40px;
+    color: var(--alt);
     font-family: OpenSans, sans-serif;
+	display: grid;
+	grid-template-columns: 80px 1fr;
+	grid-template-rows: 1fr;
+    font-size: 40px;
+    padding-left: 15px;
+	padding-top: 8px;
+	margin: 0px;
+}
+#title { /* Title */
+	margin: 0px;
+	padding-top: 3px;
 }
 #navbar { /* DIV holding the navigation links */
     display: grid;
@@ -105,9 +122,9 @@ body { /* Body text style */
     position: fixed;
     border: 2px solid;
     border-radius: 5px;
-    background-color: #151515;
+    background-color: var(--bg-alt);
     padding: 6px 12px;
-    box-shadow: -7px 7px 3px black;
+    box-shadow: -7px 7px 3px var(--shadow);
 }
 #settings {
     display: block;
@@ -115,12 +132,16 @@ body { /* Body text style */
     position: fixed;
     right: 0;
     z-index: 2;
-    background-color: #151515;
-    box-shadow: -10px 10px 3px black;
+    background-color: var(--bg-alt);
+    box-shadow: -10px 10px 3px var(--shadow);
+}
+#colourPicker {
+	padding-left: 4px;
+	gap: 5px;
 }
 #projects-dropdown {
-	background-color: #151515;
-    box-shadow: -10px 10px 3px black;
+	background-color: var(--bg-alt);
+    box-shadow: -10px 10px 3px var(--shadow);
 }
 .tab-list-item { /* Each list item */
     float: right;
@@ -130,24 +151,24 @@ body { /* Body text style */
     display: inline-block;
     text-align: center;
     text-decoration: none;
-    color: #151515;
+    color: var(--bg-alt);
     border: 2px solid;
     border-radius: 5px;
-    background-color: #04AA6D;
+    background-color: var(--alt);
     padding: 6px 12px;
     transition-duration: 0.3s;
 }
 .tab-text:hover {
-    box-shadow: -3px 3px 3px black;
+    box-shadow: -3px 3px 3px var(--shadow);
     scale: 1.05;
 }
 #active { /* Change colour of current tab */
-    background-color: #151515;
-    color: #04AA6D;
+    background-color: var(--bg-alt);
+    color: var(--alt);
 }
 .icon { /* Style for the settings cog & hamburger menu icons */
     background: rgba(0, 0, 0, 0);
-    color: #04AA6D;
+    color: var(--alt);
     font-size: 30px;
     text-align: center;
     text-decoration: none;
@@ -167,23 +188,23 @@ body { /* Body text style */
     display: inline-block;
     border-radius: 5px;
     padding: 10px;
-    background-color: #bb0000;
-    border: 2px solid #bb0000;
+    background-color: var(--error);
+    border: 2px solid var(--error);
 }
 .code {
-    background-color: #151515;
-    color: #04AA6D;
+    background-color: var(--bg-alt);
+    color: var(--alt);
     display: inline-block;
     border-radius: 5px;
-    border: 2px solid #151515;
+    border: 2px solid var(--bg-alt);
     padding: 5px;
     font-family: OpenSans, sans-serif;
 }
 .outline {
-    color: #04AA6D;
+    color: var(--alt);
     border: 2px solid;
     border-radius: 5px;
-    background-color: #262626;
+    background-color: var(--bg);
     padding: 6px 12px;
 }
 .center {
@@ -191,28 +212,28 @@ body { /* Body text style */
 	margin-right: auto;
 }
 a { /* Change links to match the colour scheme */
-    color: #04AA6D;
+    color: var(--alt);
 }
 h1 { /* Set titles apart with font, spacing, and text size */
     font-family: OpenSans, sans-serif;
-    color: #04AA6D;
+    color: var(--alt);
     line-height: 1.2;
     margin: 2px;
 }
 input { /* Normal text input styling is a dumpster fire, let's fix that */
-    background-color: #151515;
+    background-color: var(--bg-alt);
     border-radius: 5px;
-    border: 2px solid #04AA6D;
-	color: white;
+    border: 2px solid var(--alt);
+	color: var(--text);
 }
 .spacer { /* Just a workaround for spacing elements cuz css boxes are complicated */
     font-size: 0;
-    color: #262626;
+    color: var(--bg);
     padding: 25px;
 }
 .minispacer {
 	font-size: 0;
-	color: #262626;
+	color: var(--bg);
 	padding: 5px;
 }
 
@@ -221,16 +242,16 @@ input { /* Normal text input styling is a dumpster fire, let's fix that */
     display: inline-block;
     text-align: center;
     text-decoration: none;
-    color: #262626;
+    color: var(--bg);
     border: 2px solid;
     border-radius: 5px;
-    background-color: #04AA6D;
+    background-color: var(--alt);
     padding: 6px 12px;
     margin: 0px 5px;
     transition-duration: 0.3s;
 }
 .btn:hover {
-    box-shadow: -5px 5px 3px black;
+    box-shadow: -5px 5px 3px var(--shadow);
     scale: 1.05;
 }
 .circleBtn {

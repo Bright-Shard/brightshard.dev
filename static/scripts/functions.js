@@ -3,6 +3,15 @@ let date = new Date
 let expireDate = new Date(date.getFullYear() + 1, 12, 31, 12, 59, 0)
 let resizeTimer;
 let projectsListHover = false;
+const style = document.querySelector(':root')
+const logoPaths = {
+	'#04AA6D': '/static/images/logos/Logo.Green.png',
+	'#FF5500': '/static/images/logos/Logo.Orange.png',
+	'#4073FF': '/static/images/logos/Logo.Blue.png',
+	'#E02F8A': '/static/images/logos/Logo.Pink.png',
+	'#B328D9': '/static/images/logos/Logo.Purple.png',
+	'#DE2A2A': '/static/images/logos/Logo.Red.png',
+}
 
 function navBarCSS(){
     if ($(window).width() <= 800) { // Show the hamburger menu on small screens
@@ -20,14 +29,14 @@ function navBarCSS(){
     }
 }
 
-function reloadCSS(colour) {
-    $.cookie('colour', colour, {expires: expireDate, domain: '.brightshard.dev', secure: true, path: '/'});
-    $('.btn, .tab-text:not(#active), .gallery-text').css('background-color', colour);
-    $('#active').css('background-color', '#151515');
-    $('.code, a, .gallery-item, .updateColour, .icon, #active, #navbar-pages').css('color', colour);
-    $('.btn').css('color', '#262626');
-    $('.tab-text:not(#active)').css('color', '#151515');
-    $('.btn, .tab-text, .outline, #navbar-pages, input').css('border-color', colour);
+function changeAltColour(colour) {
+	style.style.setProperty('--alt', colour);
+	$('#logo').attr('src', logoPaths[colour])
+	$.cookie('colour', colour, {expires: expireDate, domain: '.brightshard.dev', secure: true, path: '/'});
+}
+function changeBackgroundColour(colour) {
+	style.style.setProperty('--bg', colour);
+	$.cookie('bg', colour, {expires: expireDate, domain: '.brightshard.dev', secure: true, path: '/'});
 }
 
 function toggleMenus() {
@@ -57,10 +66,16 @@ $(document).ready(function() {
     $('#clickdetection').hide();
     navBarCSS()
     if($.cookie('colour')){
-        reloadCSS($.cookie('colour'))
+        changeAltColour($.cookie('colour'))
     } else {
         $.cookie('colour', '#04AA6D', {expires: expireDate, domain: '.brightshard.dev', secure: true, path: '/'});
     }
+	if($.cookie('bg')){
+		changeBackgroundColour($.cookie('bg'))
+	} else {
+		$.cookie('bg', '#262626', {expires: expireDate, domain: '.brightshard.dev', secure: true, path: '/'});
+	}
+	$('#logo').attr('src', logoPaths[$.cookie('colour')])
     $('img').click(function() {
         if($(this).attr('nozoom') != 'true'){
             toggleMenus()

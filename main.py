@@ -1,13 +1,15 @@
 import flask
-from flask import Flask, send_file, render_template
+from flask import Flask, send_file, render_template, make_response, request
 from flask_cors import CORS
 import jinja2
+import requests
+from data import babelURL
 
 projects = {
 	'ccpp': {'title': 'Cookie Clicker++', 'desc': 'The cookies never stop coming', 'imgsrc': 'cookie-clicker-icon.png', 'href': 'ccpp'}, 
 	'brightbot': {'title': 'BrightBot', 'desc': 'Free, open-source Discord bot with basic admin commands', 'imgsrc': 'discord.png', 'href': 'brightbot'},
 	'tricktroll': {'title': 'Trick Troller', 'desc': 'Better Rick Rolls', 'imgsrc': 'rickroll.jpg', 'href': 'tricktroll'},
-	'digispark': {'title': 'DigiSpark HID', 'desc': 'DigiSpark HID attacks', 'imgsrc': 'digispark.png', 'href': 'digispark'}
+	'digispark': {'title': 'DigiSpark HID', 'desc': 'DigiSpark HID attacks', 'imgsrc': 'digispark.png', 'href': 'digispark'},
 }
 
 posts = {
@@ -73,6 +75,19 @@ def downloadFile(file):
         return send_file(f'files/{file}', as_attachment=True)
     except FileNotFoundError:
         return render_template('404.html')
+
+
+@app.route('/brightbot')
+def brightbotInvite():
+	return render_template('templates/redirect.html', url='https://discord.com/api/oauth2/authorize?client_id=961383253598683167&permissions=8&scope=bot%20applications.commands')
+
+
+@app.route('/tricktroll/<type>')
+def ricktroll(type: str='youtube'):
+	if type == 'youtube':
+		return render_template('templates/redirect.html', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+	elif type == 'babel':
+		return render_template('templates/redirect.html', url=babelURL)
 
 
 if __name__ == '__main__':
