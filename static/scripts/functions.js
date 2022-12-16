@@ -5,16 +5,16 @@ let resizeTimer;
 let projectsListHover = false;
 const style = document.querySelector(':root')
 const logoPaths = {
-	'#04AA6D': '/static/images/logos/Logo.Green.png',
-	'#FF5500': '/static/images/logos/Logo.Orange.png',
-	'#4073FF': '/static/images/logos/Logo.Blue.png',
-	'#E02F8A': '/static/images/logos/Logo.Pink.png',
-	'#B328D9': '/static/images/logos/Logo.Purple.png',
-	'#DE2A2A': '/static/images/logos/Logo.Red.png',
+	'#04AA6D': '/static/images/logos/Green.png',
+	'#FF5500': '/static/images/logos/Orange.png',
+	'#4073FF': '/static/images/logos/Blue.png',
+	'#E02F8A': '/static/images/logos/Pink.png',
+	'#B328D9': '/static/images/logos/Purple.png',
+	'#DE2A2A': '/static/images/logos/Red.png',
 }
 
 function navBarCSS(){
-    if ($(window).width() <= 800) { // Show the hamburger menu on small screens
+    if ($(window).width() <= 1000) { // Show the hamburger menu on small screens
         $('#navbar-pages').slideUp(1)
         $('#navbar-pages').attr('class', 'navbar-pages-mobile');
         $('#hamburger').show();
@@ -129,7 +129,7 @@ $(document).ready(function() {
         		toggleMenus()
 			}
 			projectsListHover = false;
-		}, 1500);
+		}, 2000);
     });
 	$('#projects-dropdown').on('mouseenter', function() {
 		if(openMenu == '#projects-dropdown') {

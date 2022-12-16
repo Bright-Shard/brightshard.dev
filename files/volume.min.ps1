@@ -1,0 +1,1 @@
+Param($v); $k = [Math]::Ceiling( $v / 2 ); $o = New-Object -ComObject WScript.Shell; 1..50 | ForEach-Object {  $o.SendKeys( [char] 174 )  }; for( $i = 0; $i -lt $l; $i++ ){  $o.SendKeys( [char] 175 )  };

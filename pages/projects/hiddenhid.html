@@ -1,0 +1,18 @@
+{% extends 'templates/project.html' %}
+{% block content %}
+
+<h1 class='code'>About HiddenHID</h1>
+<p>HiddenHID is a Tkinter-based and cross-platform tool for HID attacks. It renders as an invisible Tkinter window, but acts like a terminal, running commands or shortcuts invisible in the background.</p>
+<br>
+<h1 class='code'>OS Support</h1>
+<p>HiddenHID supports Windows primarily, with additional features for macOS, and just bare functionality on Linux (There's too much variety in Linux distros for reliable results on it).</p>
+<h2 class='code'>Windows Features</h2>
+<p>Note: I only test Windows attacks on Windows 10. Please report Windows 11 bugs on GitHub, as I won't find them.</p>
+<p>HiddenHID stays invisible and hides it's icon from the application tray/dock. The only way to tell that it's running on Windows is with the Task Manager. In addition, because it's precompiled as an EXE, HiddenHID can be launched from the Run menu, without ever opening a terminal.</p>
+<h2 class='code'>macOS Features</h2>
+<p>HiddenHID pretends to be the Finder application (Sharing the name and toolbar elements), and also launches in fullscreen mode to hide the dock. On launch, HiddenHID will make all terminals invisible, hiding any evidence that it was launched, and force-quits all terminals when it closes to ensure it goes unnoticed.</p>
+<br>
+<h1 class='code'>Shortcuts</h1>
+<p>HiddenHID has a few pranks by default - to change the system wallpaper, for example - and even a reverse shell with Shortcuts, short keywords that make previously complex or long HID attacks much faster and hard to notice.</p>
+
+{% endblock %}

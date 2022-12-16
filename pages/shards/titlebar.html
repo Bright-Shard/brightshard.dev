@@ -1,6 +1,6 @@
 <div id='titlebar'>
     <a id='branding' href='/'>
-		<img nozoom='true' height="63.5" width="67.25" id='logo'>
+		<img nozoom='true' id='logo'>
 		<p id='title'>BrightShard</p>
     </a>
     <div id='navbar'>
@@ -10,9 +10,12 @@
             <li class='tab-list-item'><a href='/projects' id='/projects' class='tab-text'>My Projects</a>
                 <div class='outline' id='projects-dropdown' style='position: absolute; margin-top: 5px;'>
                     {% for name, project in projects.items() %}
-                        <a href='/projects/{{ project.href }}' class='btn' style='margin-bottom: 5px; margin-top: 5px'>{{ project.title }}</a>
-                        <br>
+						{% if project['quickmenu'] %}
+	                        <a href='/projects/{{ project.href }}' class='btn' style='margin-bottom: 5px; margin-top: 5px'>{{ project.title }}</a>
+	                        <br>
+						{% endif %}
                     {% endfor %}
+                        <a href='/projects' class='btn' style='margin-bottom: 5px; margin-top: 5px'>All Projects ></a>
                 </div>
             </li>
             <li class='tab-list-item'><a href='/' id='/' class='tab-text'>Home</a></li>
